@@ -30,10 +30,11 @@ jobs:
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v5.0.3
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.TEST1_KEY }}
-        REMOTE_HOST: ${{ secrets.TEST1_HOST }}
-        REMOTE_USER: ${{ secrets.TEST1_USER }}
-        ARGS: "-avzL"
+        env:
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ env.EC2_HOST }}
+        REMOTE_USER: ${{ env.EC2_USER }}
+        ARGS: "-avzL --delete"
         SOURCE: "out/"
         TARGET: "/server/www/z.com"
 #        SCRIPT_AFTER: |
