@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export', // 静态输出
+  images: {
+    unoptimized: true // 静态导出时需要，否则图片优化会出错
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;
