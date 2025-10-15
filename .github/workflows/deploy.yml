@@ -32,8 +32,8 @@ jobs:
       env:
         env:
         SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-        REMOTE_HOST: ${{ env.EC2_HOST }}
-        REMOTE_USER: ${{ env.EC2_USER }}
+        REMOTE_HOST: ${{ secrets.EC2_HOST }}
+        REMOTE_USER: ${{ secrets.EC2_USER }}
         ARGS: "-avzL --delete"
         SOURCE: "out/"
         TARGET: "/server/www/z.com"
